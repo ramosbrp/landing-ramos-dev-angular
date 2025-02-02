@@ -10,32 +10,5 @@ main {
         display: flex;
     }
 
-    .home {
-        display: flex;
-        flex-flow: row;
-        justify-content: space-between;
-    }
-
-    .cta {
-        width: 40%;
-
-        h1 {
-            font-size: 5rem;
-            font-weight: bold;
-        }
-        h3{
-            font-size: 2rem;
-            font-weight: normal ;
-        }
-
-        span {
-            color: #AB05F2;
-        }
-    }
-
-    .contato {
-        display: flex;
-        flex-flow: column wrap;
-    }
-
+   
 }

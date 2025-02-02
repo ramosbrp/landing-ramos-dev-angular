@@ -1,12 +1,12 @@
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
-import { ButtonCta } from '../components/button-cta/button.cta';
-import { FormContato } from '../components/form-contato/form.contato';
+
+import { HeroSectionComponent } from "./components/hero-section/hero-section.component";
 
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, ButtonCta, FormContato],
+  imports: [RouterOutlet, HeroSectionComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
 })

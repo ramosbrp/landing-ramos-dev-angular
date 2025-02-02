@@ -1,0 +1,27 @@
+ .hero-section {
+        display: flex;
+        flex-flow: row;
+        justify-content: space-between;
+    }
+
+    .cta {
+        width: 40%;
+        margin-top: 50px;
+
+        h1 {
+            font-size: 5rem;
+            font-weight: bold;
+        }
+        h3{
+            font-size: 2rem;
+            font-weight: normal ;
+        }
+
+        span {
+            color: #AB05F2;
+        }
+    }
+
+    form-contato{
+        width: 40%;
+    }
