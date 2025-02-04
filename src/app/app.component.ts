@@ -4,11 +4,12 @@ import { RouterOutlet } from '@angular/router';
 import { HeroSectionComponent } from "./components/hero-section/hero-section.component";
 import { ServicosComponent } from "./components/servicos/servicos.component";
 import { SobreComponent } from "./components/sobre/sobre.component";
+import { HeaderComponent } from './components/header/header.component';
 
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, HeroSectionComponent, ServicosComponent, SobreComponent],
+  imports: [RouterOutlet, HeroSectionComponent, ServicosComponent, SobreComponent, HeaderComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
 })

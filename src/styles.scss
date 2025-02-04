@@ -1,23 +1,22 @@
 @use '@angular/material' as mat;
 
-@include mat.core(); // Necessário para os componentes do Material funcionarem
 
-// Definição do Tema
-$my-theme: mat.define-theme((color: (primary: mat.define-palette(mat.$green-palette),
-                secondary: mat.define-palette(mat.$blue-palette),
-            ),
-            typography: mat.define-typography-config(),
-            density: mat.define-density(0)));
-
-// Aplica o tema aos componentes do Material
-@include mat.all-component-themes($my-theme);
-
-// Aplica variáveis de cor do Material 3 para serem usadas no CSS
-:root {
-    @include mat.theme-color-vars($my-theme);
+html {
+    color-scheme: light;
+    @include mat.theme((color: mat.$chartreuse-palette,
+            typography: Roboto,
+            density: 0));
 }
 
+.dark-theme {
+    background-color: #121212;
+    color: #fff;
+}
 
+.light-theme {
+    background-color: #ffffff;
+    color: #000;
+}
 
 * {
     padding: 0;
@@ -57,38 +56,7 @@ a {
     left: 95%;
 }
 
-header {
-    height: 10vh;
-    padding: 10px;
-    position: fixed;
-    top: 0;
-    width: 100%;
-    display: flex;
-    flex-flow: row wrap;
-    justify-content: center;
-    z-index: 2;
 
-    >div {
-        display: flex;
-        flex-flow: row wrap;
-        justify-content: space-between;
-        align-items: center;
-        width: 80%;
-    }
-
-    #logo {
-        width: 100px;
-        height: 100px;
-    }
-
-    ul {
-        width: 300px;
-        display: flex;
-        flex-flow: row wrap;
-        justify-content: space-between;
-        align-items: center;
-    }
-}
 
 
 

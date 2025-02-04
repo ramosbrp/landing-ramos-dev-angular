@@ -1,0 +1,32 @@
+header {
+    height: 10vh;
+    padding: 10px;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    z-index: 2;
+
+    >div {
+        display: flex;
+        flex-flow: row wrap;
+        justify-content: space-between;
+        align-items: center;
+        width: 80%;
+    }
+
+    #logo {
+        width: 100px;
+        height: 100px;
+    }
+
+    ul {
+        width: 300px;
+        display: flex;
+        flex-flow: row wrap;
+        justify-content: space-between;
+        align-items: center;
+    }
+}
