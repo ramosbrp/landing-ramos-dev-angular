@@ -1,5 +1,6 @@
-import { Injectable, Inject, PLATFORM_ID } from '@angular/core';
-import { isPlatformBrowser } from '@angular/common';
+import { Injectable, Inject } from '@angular/core';
+import { DOCUMENT } from '@angular/common';
+import { BehaviorSubject } from 'rxjs';
 
 @Injectable({
     providedIn: 'root',
@@ -9,35 +10,34 @@ export class ThemeService {
     private darkThemeClass = 'dark-theme';
     private lightThemeClass = 'light-theme';
 
-    constructor(@Inject(PLATFORM_ID) private platformId: Object) {
+    private isDarkMode = new BehaviorSubject<boolean>(false);
+    isDarkMode$ = this.isDarkMode.asObservable();
+
+    constructor(@Inject(DOCUMENT) private document: Document) {
         this.loadTheme();
     }
 
     private loadTheme() {
-        if (isPlatformBrowser(this.platformId)) {
-            // Executa apenas no navegador
-            const savedTheme = localStorage.getItem(this.themeKey);
-            if (savedTheme) {
-                document.documentElement.classList.add(savedTheme);
-            } else {
-                document.documentElement.classList.add(this.lightThemeClass);
-            }
-        }
+        const savedTheme = localStorage.getItem(this.themeKey);
+        const isDark = savedTheme === this.darkThemeClass;
+
+        this.isDarkMode.next(isDark);
+        this.applyTheme(isDark);
     }
 
-    toggleTheme() {
-        if (isPlatformBrowser(this.platformId)) {
-            const isDarkMode = document.documentElement.classList.contains(this.darkThemeClass);
+    toggleTheme(isDark: boolean) {
+        this.isDarkMode.next(isDark);
+        localStorage.setItem(this.themeKey, isDark ? this.darkThemeClass : this.lightThemeClass);
+        this.applyTheme(isDark);
+    }
 
-            if (isDarkMode) {
-                console.log(document.documentElement.classList);
-                document.documentElement.classList.replace(this.darkThemeClass, this.lightThemeClass);
-                localStorage.setItem(this.themeKey, this.lightThemeClass);
-            } else {
-                console.log(document.documentElement.classList);
-                document.documentElement.classList.replace(this.lightThemeClass, this.darkThemeClass);
-                localStorage.setItem(this.themeKey, this.darkThemeClass);
-            }
+    private applyTheme(isDark: boolean) {
+        if (isDark) {
+            this.document.body.classList.add(this.darkThemeClass);
+            this.document.body.classList.remove(this.lightThemeClass);
+        } else {
+            this.document.body.classList.add(this.lightThemeClass);
+            this.document.body.classList.remove(this.darkThemeClass);
         }
     }
 }

@@ -1,12 +1,27 @@
-import { Component } from '@angular/core';
-import { ThemeToggleComponent } from '../theme-toggle/theme-toggle.component';
+import { MatSlideToggleModule } from '@angular/material/slide-toggle';
+import { ThemeService } from '../../../services/theme.services/theme.service';
+
+import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-header',
-  imports: [ThemeToggleComponent],
+  imports: [MatSlideToggleModule],
   templateUrl: './header.component.html',
-  styleUrl: './header.component.scss'
+  styleUrls: ['./header.component.scss'],
 })
-export class HeaderComponent {
+export class HeaderComponent implements OnInit {
+  isDarkMode: boolean = false;
 
+  constructor(private themeService: ThemeService) { }
+
+  ngOnInit() {
+    this.themeService.isDarkMode$.subscribe((isDark) => {
+      this.isDarkMode = isDark;
+    });
+  }
+
+  onThemeToggle(event: any) {
+    this.themeService.toggleTheme(event.checked);
+  }
 }
+
