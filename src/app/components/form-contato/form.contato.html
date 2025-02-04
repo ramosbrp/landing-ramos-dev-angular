@@ -1,23 +1,24 @@
-<form action="" class="contato">
-    <h3>"Me conte sobre seu projeto e receba um orçamento personalizado.</h3>
+<form [formGroup]="formulario" (ngSubmit)="enviarFormulario()" class="contato">
+    <h3>Me conte sobre seu projeto e receba um orçamento personalizado.</h3>
     <mat-form-field>
         <mat-label>Nome</mat-label>
-        <input matInput>
+        <input matInput [formControl]="name">
     </mat-form-field>
 
     <mat-form-field>
         <mat-label>Email</mat-label>
         <input matInput placeholder="pat@example.com" [formControl]="email" (blur)="updateErrorMessage()" required />
-        @if (email.invalid) {
-        <mat-error>{{errorMessage()}}</mat-error>
-        }
+        <mat-error *ngIf="email.invalid">{{ errorMessage() }}</mat-error>
     </mat-form-field>
 
 
     <mat-form-field>
         <mat-label>Textarea</mat-label>
-        <textarea matInput></textarea>
+        <textarea matInput [formControl]="message"></textarea>
     </mat-form-field>
 
-    <button>Enviar</button>
+    <button mat-button type="submit" class="form-contatct-button-submit" id="form-contatct-button-submit"
+        [disabled]="formulario.invalid">
+        Enviar
+    </button>
 </form>

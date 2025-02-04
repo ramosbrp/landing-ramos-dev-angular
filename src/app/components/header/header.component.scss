@@ -3,10 +3,10 @@ header {
     padding: 10px;
     position: fixed;
     top: 0;
-    width: 100%;
+    width: 90%;
     display: flex;
     flex-flow: row wrap;
-    justify-content: center;
+    justify-content: flex-end;
     z-index: 2;
 
     >div {

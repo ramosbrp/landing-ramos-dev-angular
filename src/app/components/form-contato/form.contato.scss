@@ -31,6 +31,13 @@
         border-radius: 8px;
     }
 
+    .form-contatct-button-submit {
+        background-color: var(--mat-sys-primary);
+        color: var(--mat-sys-on-primary);
+    }
 
+    .form-contatct-button-submit:hover {
+        background-color: var(--mat-sys-primary-hover);
+    }
 
 }

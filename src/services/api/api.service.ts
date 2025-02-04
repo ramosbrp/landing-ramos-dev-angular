@@ -13,4 +13,8 @@ export class ApiService {
     getDados(): Observable<any> {
         return this.http.get(`${this.baseUrl}/dados`);
     }
+
+    sendEmail(data: any): Observable<any> {
+        return this.http.post(`${this.baseUrl}/send-email`, data);
+    }
 }

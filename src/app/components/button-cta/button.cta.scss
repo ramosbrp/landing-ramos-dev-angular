@@ -1,10 +1,17 @@
 @use '@angular/material' as mat;
 
-button {
+.button-cta {
     width: 247px;
     height: 48px;
     background-color: var(--mat-sys-tertiary);
-    color: var(--mat-sys-on-secondary);
     border-radius: 12px;
     font-size: 1.6rem;
+    color: var(--mat-sys-on-tertiary);
+
+
+}
+
+.button-cta:hover {
+    background-color: var(--mat-sys-tertiary-hover);
+    color: var(--mat-sys-on-tertiary-hover);
 }

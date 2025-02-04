@@ -3,9 +3,12 @@
 
 html {
     color-scheme: light dar;
-    @include mat.theme((color: mat.$violet-palette,
+    @include mat.theme((color: (primary: mat.$violet-palette,
+                tertiary: mat.$magenta-palette, ),
             typography: Roboto,
             density: 0));
+
+
 }
 
 // .light-theme {
@@ -45,7 +48,9 @@ html {
         /* 10px */
 }
 
-body {}
+body {
+    margin: 0;
+}
 
 li {
     list-style-type: none;
