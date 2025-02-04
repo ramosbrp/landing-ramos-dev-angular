@@ -1,29 +1,23 @@
 <form action="" class="contato">
     <h3>"Me conte sobre seu projeto e receba um orçamento personalizado.</h3>
     <mat-form-field>
-        <mat-label>Input</mat-label>
+        <mat-label>Nome</mat-label>
         <input matInput>
     </mat-form-field>
 
-    <div class="title">
-        <label for="name">Nome / Empresa</label>
-        <input type="text" placeholder="Nome" id="name" name="name">
-    </div>
+    <mat-form-field>
+        <mat-label>Email</mat-label>
+        <input matInput placeholder="pat@example.com" [formControl]="email" (blur)="updateErrorMessage()" required />
+        @if (email.invalid) {
+        <mat-error>{{errorMessage()}}</mat-error>
+        }
+    </mat-form-field>
 
-    <div class="title">
-        <label for="email">E-mail</label>
-        <input type="email" placeholder="Email" id="email" name="email">
-    </div>
 
-    <div class="title">
-        <label for="tel">Telefone</label>
-        <input type="tel" placeholder="Telefone" id="tel" name="tel">
-    </div>
-
-    <div class="title">
-        <label for="message">Mensagem</label>
-        <textarea name="" id="" cols="30" rows="10" placeholder="Mensagem" id="message" name="message"></textarea>
-    </div>
+    <mat-form-field>
+        <mat-label>Textarea</mat-label>
+        <textarea matInput></textarea>
+    </mat-form-field>
 
     <button>Enviar</button>
 </form>

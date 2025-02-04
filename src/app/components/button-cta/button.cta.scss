@@ -3,7 +3,8 @@
 button {
     width: 247px;
     height: 48px;
-    background-color: var(--mat-mdc-primary); // Agora funciona!
+    background-color: var(--mat-sys-tertiary);
+    color: var(--mat-sys-on-secondary);
     border-radius: 12px;
     font-size: 1.6rem;
 }

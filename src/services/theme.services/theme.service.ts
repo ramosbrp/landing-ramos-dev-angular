@@ -18,7 +18,7 @@ export class ThemeService {
     }
 
     private loadTheme() {
-        const savedTheme = localStorage.getItem(this.themeKey);
+        const savedTheme = typeof window != 'undefined' ? localStorage.getItem(this.themeKey) : null;
         const isDark = savedTheme === this.darkThemeClass;
 
         this.isDarkMode.next(isDark);
@@ -27,7 +27,9 @@ export class ThemeService {
 
     toggleTheme(isDark: boolean) {
         this.isDarkMode.next(isDark);
-        localStorage.setItem(this.themeKey, isDark ? this.darkThemeClass : this.lightThemeClass);
+        if (typeof window === 'undefined') {
+            localStorage.setItem(this.themeKey, isDark ? this.darkThemeClass : this.lightThemeClass);
+        }
         this.applyTheme(isDark);
     }
 

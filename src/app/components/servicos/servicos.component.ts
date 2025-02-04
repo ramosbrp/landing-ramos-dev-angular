@@ -1,9 +1,10 @@
 import { Component } from '@angular/core';
-import { MatTabsModule } from '@angular/material/tabs';
+import { ServicosTabComponent } from "../tabs/servicos-tab/servicos-tab.component";
+
 
 @Component({
   selector: 'app-servicos',
-  imports: [MatTabsModule],
+  imports: [ServicosTabComponent],
   templateUrl: './servicos.component.html',
   styleUrl: './servicos.component.scss'
 })
