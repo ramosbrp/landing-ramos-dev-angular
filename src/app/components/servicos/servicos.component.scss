@@ -2,7 +2,7 @@
 
 // Atltera as cores das tabs
 .servicos {
-    @include mat.tabs-overrides((label-text-size: 1rem,
+    @include mat.tabs-overrides((label-text-size: 2rem,
         ));
 }
 
@@ -17,14 +17,6 @@
         width: 100%;
         height: 500px;
     }
-
-    // Tenta alterar o tamanho da fonte do texto das tabs
-    :host ::ng-deep .mat-tab-label {
-        font-size: 50px;
-        font-weight: bold;
-    }
-
-
 
     h1 {
         text-align: center;

@@ -3,6 +3,14 @@
     flex-flow: column wrap;
     justify-content: space-between;
     height: 496px;
+    margin-left: 50px;
+    h3{
+        font-size: 1.5rem;
+        font-weight: normal;
+    }
+    input {
+        background-color: white;
+    }
 
     .title {
         display: flex;
@@ -25,10 +33,11 @@
     textarea {
         width: 600px;
         border-radius: 8px;
+        background-color: white;
     }
 
     button {
-        background-color: #00A9D4;
+        // background-color: #00A9D4;
     }
 
 
