@@ -5,7 +5,6 @@ html {
     color-scheme: light dar;
     @include mat.theme((color: (primary: mat.$violet-palette,
                 tertiary: mat.$magenta-palette, ),
-            typography: Roboto,
             density: 0,
             typography: (plain-family: Roboto,
                 brand-family: Open Sans,
