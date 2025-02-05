@@ -1,0 +1,26 @@
+ .hero-section {
+     height: 66vh;
+     display: flex;
+     flex-flow: row;
+     justify-content: space-between;
+     margin-top: 100px;
+     width: 100%;
+ }
+
+ .cta {
+     margin-top: 50px;
+
+     h1 {
+         font-size: 5rem;
+         font-weight: bold;
+     }
+
+     h3 {
+         font-size: 2rem;
+         font-weight: normal;
+     }
+
+     span {
+         color: #AB05F2;
+     }
+ }

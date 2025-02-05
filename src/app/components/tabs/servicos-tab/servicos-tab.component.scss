@@ -1,0 +1,22 @@
+@use '@angular/material' as mat;
+
+
+
+.custom-tabs {
+    margin-top: 120px;
+    @include mat.tabs-overrides((label-text-size: 2rem,
+            inactive-label-text-color: var(--mat-sys-inverse-on-surface),
+            active-label-text-color: var(--mat-sys-on-tertiary),
+            active-focus-label-text-color: var(--mat-sys-on-tertiary),
+            background-color: red));
+
+
+    h2 {
+        text-align: left;
+        font-size: 4rem;
+    }
+
+    p {
+        font-size: 2rem;
+    }
+}
