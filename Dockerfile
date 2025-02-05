@@ -29,7 +29,7 @@ COPY nginx.conf /etc/nginx/conf.d/default.conf
 COPY --from=build /app/dist/ramos-dev/browser /usr/share/nginx/html
 
 # Expõe a porta padrão do Nginx
-EXPOSE 80
+EXPOSE 3001
 
 # Comando padrão para iniciar o servidor
 CMD ["nginx", "-g", "daemon off;"]
