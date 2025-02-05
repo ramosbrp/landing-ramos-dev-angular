@@ -1,5 +1,5 @@
 <form [formGroup]="formulario" (ngSubmit)="enviarFormulario()" class="contato">
-    <h3>Me conte sobre seu projeto e receba um orçamento personalizado.</h3>
+    <h3>Me conte sobre seu projeto.</h3>
     <mat-form-field>
         <mat-label>Nome</mat-label>
         <input matInput [formControl]="name">
@@ -17,7 +17,7 @@
         <textarea matInput [formControl]="message"></textarea>
     </mat-form-field>
 
-    <button mat-button type="submit" class="form-contatct-button-submit" id="form-contatct-button-submit"
+    <button type="submit" class="form-contatct-button-submit" id="form-contatct-button-submit"
         [disabled]="formulario.invalid">
         Enviar
     </button>
