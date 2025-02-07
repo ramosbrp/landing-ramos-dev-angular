@@ -5,7 +5,7 @@ import { HeroSectionComponent } from "./components/hero-section/hero-section.com
 import { ServicosComponent } from "./components/servicos/servicos.component";
 import { SobreComponent } from "./components/sobre/sobre.component";
 import { HeaderComponent } from './components/header/header.component';
-import { ApiService } from '../services/api/api.service';
+import { LogService } from '../services/log.service/log.service';
 
 
 @Component({
@@ -19,12 +19,12 @@ export class AppComponent {
   title = 'ramos-dev';
   mensagem: string = '';
 
-  constructor(private apiService: ApiService) { }
+  constructor(private logService: LogService) { }
 
   ngOnInit() {
-    this.apiService.getDados().subscribe((res) => {
-      this.mensagem = res.mensagem;
-      console.log(res);
+  
+    this.logService.sendData(1).subscribe((res) => {
+      this.mensagem = res;
     });
   }
 }

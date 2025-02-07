@@ -7,6 +7,7 @@ import { FormBuilder, FormControl, FormGroup, FormsModule, ReactiveFormsModule, 
 import { merge } from 'rxjs';
 import { MatButtonModule } from '@angular/material/button';
 import { ApiService } from '../../../services/api/api.service';
+import { EmailService } from '../../../services/email.service/email.service';
 import { NgIf } from '@angular/common';
 
 @Component({
@@ -27,7 +28,7 @@ export class FormContato {
 
   errorMessage = signal('');
 
-  constructor(private fb: FormBuilder, private apiService: ApiService) {
+  constructor(private fb: FormBuilder, private emailService: EmailService) {
 
     this.formulario = fb.group({
       name: this.name,
@@ -51,17 +52,27 @@ export class FormContato {
   }
 
   enviarFormulario() {
-    console.log(this.formulario.value)
-    if (this.formulario.valid) {
-      this.apiService.sendEmail(this.formulario.value).subscribe(
-        () => {
-          alert('Email enviado com sucesso!');
-          this.formulario.reset();
-        },
-        () => alert('Erro ao enviar email.')
-      );
+    if (this.formulario.invalid) {
+      alert('Preencha todos os campos corretamente.');
+      return;
     }
+
+    this.emailService.sendEmail(this.formulario.value).subscribe({
+      next: () => {
+        alert('Email enviado com sucesso!');
+        this.formulario.reset();
+      },
+      error: (err) => {
+        console.error('Erro ao enviar email:', err);
+        alert('Erro ao enviar email. Tente novamente mais tarde.');
+      },
+      complete: () => {
+        // Independente do resultado, desativa o loading
+        // this.isLoading = false;
+      }
+    });
   }
+
 
 
 

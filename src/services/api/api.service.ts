@@ -8,11 +8,8 @@ import { environment } from '../../environments/environment';
 })
 export class ApiService {
     private baseUrl = environment.URL; // URL do backend local
+
     constructor(private http: HttpClient) {
-        console.log(environment)
-    }
-    getDados(): Observable<any> {
-        return this.http.get(`${this.baseUrl}/dados`);
     }
 
     sendEmail(data: any): Observable<any> {

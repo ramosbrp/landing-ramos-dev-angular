@@ -19,27 +19,58 @@
         color: #D9D9D9;
     }
 
-    input,
+    .mat-form-field-input,
     button {
         width: 600px;
-        height: 40px;
-        border-radius: 8px;
+        height: 70px;
     }
 
-    textarea {
-        width: 600px;
-        border-radius: 8px;
+    .mat-form-field-textarea {
+        height: 130px;
     }
 
     .form-contatct-button-submit {
-        background-color: light-dark(#ffd7f5, #ffd7f5);
         color: var(--mat-sys-primary);
         font-size: 2rem;
         font-weight: bold;
+        height: 40px;
+        border-radius: 8px;
+        background-color: #D9D9D9;
     }
 
     .form-contatct-button-submit:hover {
         background: light-dark(#ffabf3, #ffabf3);
     }
 
+}
+
+@media(max-width: 768px) {
+    .contato {
+        margin: 0;
+        width: 100%;
+        align-items: center;
+
+        input,
+        button {
+            height: 27px;
+        }
+
+        .mat-form-field-textarea {
+            height: 100px;
+        }
+
+        mat-form-field {
+            width: 360px;
+        }
+
+        .form-contatct-button-submit {
+            width: 360px;
+
+        }
+
+        .form-contatct-button-submit {
+            font-size: 1rem;
+
+        }
+    }
 }

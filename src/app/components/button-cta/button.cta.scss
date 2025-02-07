@@ -1,7 +1,7 @@
 .button-cta {
     width: 247px;
     height: 48px;
-    background-color: var(--mat-sys-tertiary);
+    background-color: var(--mat-sys-primary);
     border-radius: 12px;
     font-size: 1.6rem;
     color: var(--mat-sys-on-tertiary) !important;
@@ -12,4 +12,12 @@
 .button-cta:hover {
     background-color: var(--mat-sys-tertiary-hover) !important;
     color: var(--mat-sys-on-tertiary-hover) !important;
+}
+
+@media(max-width: 768px) {
+    .button-cta {
+        font-size: 1rem;
+        width: 195px;
+        height: 30px;
+    }
 }

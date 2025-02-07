@@ -3,7 +3,7 @@
      display: flex;
      flex-flow: row;
      justify-content: space-between;
-     margin-top: 100px;
+     margin-top: 188px;
      width: 100%;
  }
 
@@ -21,6 +21,43 @@
      }
 
      span {
-         color: #AB05F2;
+         color: var(--mat-sys-primary);
      }
+ }
+
+ @media(max-width: 768px) {
+     .hero-section {
+         flex-flow: column;
+         justify-content: center;
+         align-items: center;
+         margin-top: 44px;
+         height: 75vh;
+
+         >div {
+             display: flex;
+             flex-flow: column;
+             justify-content: center;
+             align-items: center
+         }
+
+         form-contato {
+             margin-top: 40px;
+
+         }
+
+         .cta {
+             max-width: 369px;
+
+             h1 {
+                 font-size: 2rem;
+                 text-align: center;
+             }
+
+             h3 {
+                 font-size: 1rem;
+                 text-align: center;
+             }
+         }
+     }
+
  }

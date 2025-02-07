@@ -4,11 +4,11 @@
 
 .custom-tabs {
     margin-top: 120px;
-    @include mat.tabs-overrides((label-text-size: 2rem,
+    @include mat.tabs-overrides((label-text-size: 1.5rem,
             inactive-label-text-color: var(--mat-sys-inverse-on-surface),
-            active-label-text-color: var(--mat-sys-on-tertiary),
+            // active-label-text-color: var(--mat-sys-tertiary),
             active-focus-label-text-color: var(--mat-sys-on-tertiary),
-            background-color: red));
+        ));
 
 
     h2 {
@@ -18,5 +18,19 @@
 
     p {
         font-size: 2rem;
+    }
+}
+
+@media(max-width: 768px) {
+    .custom-tabs {
+        h2 {
+            font-size: 2rem;
+        }
+
+        ::ng-deep .mat-mdc-tab-labels {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start
+        }
     }
 }

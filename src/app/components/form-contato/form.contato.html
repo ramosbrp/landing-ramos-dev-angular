@@ -2,19 +2,20 @@
     <h3>Me conte sobre seu projeto.</h3>
     <mat-form-field>
         <mat-label>Nome</mat-label>
-        <input matInput [formControl]="name">
+        <input matInput [formControl]="name" class="mat-form-field">
     </mat-form-field>
 
     <mat-form-field>
         <mat-label>Email</mat-label>
-        <input matInput placeholder="pat@example.com" [formControl]="email" (blur)="updateErrorMessage()" required />
+        <input matInput placeholder="pat@example.com" [formControl]="email" (blur)="updateErrorMessage()" required
+            class="mat-form-field" />
         <mat-error *ngIf="email.invalid">{{ errorMessage() }}</mat-error>
     </mat-form-field>
 
 
     <mat-form-field>
         <mat-label>Textarea</mat-label>
-        <textarea matInput [formControl]="message"></textarea>
+        <textarea matInput [formControl]="message" class="" class="mat-form-field-textarea"></textarea>
     </mat-form-field>
 
     <button type="submit" class="form-contatct-button-submit" id="form-contatct-button-submit"
