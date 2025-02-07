@@ -6,6 +6,7 @@ import { ServicosComponent } from "./components/servicos/servicos.component";
 import { SobreComponent } from "./components/sobre/sobre.component";
 import { HeaderComponent } from './components/header/header.component';
 import { LogService } from '../services/log.service/log.service';
+import { environment } from '../environments/environment';
 
 
 @Component({
@@ -18,13 +19,22 @@ import { LogService } from '../services/log.service/log.service';
 export class AppComponent {
   title = 'ramos-dev';
   mensagem: string = '';
-
+  window: Window | undefined
   constructor(private logService: LogService) { }
 
   ngOnInit() {
-  
-    this.logService.sendData(1).subscribe((res) => {
+    // if (environment) { // Enviar logs apenas em produção
+    const logData = {
+      timestamp: new Date().toISOString(),
+      pageUrl: window.location.href,
+      userAgent: navigator.userAgent,
+      screenSize: `${window.innerWidth}x${window.innerHeight}`,
+      referrer: document.referrer || 'direct'
+    };
+
+    this.logService.sendData(logData).subscribe((res) => {
       this.mensagem = res;
     });
+    // }
   }
 }

@@ -14,10 +14,12 @@ export class LogService {
   private data: any;
 
   sendData(data: any): Observable<any> {
-    this.data = { data: data, date: Date };
+    console.log(data)
+    this.data = { data: data };
+    console.log(this.data)
 
     return this.http.post(`${this.baseUrl}/send-data`, this.data);
-  
+
   }
 
 }
